@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -28,15 +29,15 @@ namespace Crypthat.Models
             Hash = SHA256.Create().ComputeHash(Encoding.Latin1.GetBytes(Data));
         }
 
-        public void ReComputeHash(byte[] _previousHash)
+        public void ReComputeHash(IEnumerable<byte> previousHash)
         {
-            Hash = SHA256.Create().ComputeHash(_previousHash.Concat(Encoding.Latin1.GetBytes(Data)).ToArray());
+            Hash = SHA256.Create().ComputeHash(previousHash.Concat(Encoding.Latin1.GetBytes(Data)).ToArray());
         }
 
-        public void ReComputeHash(byte[] _previousHash, string data)
+        public void ReComputeHash(IEnumerable<byte> previousHash, string data)
         {
             Data = data;
-            Hash = SHA256.Create().ComputeHash(_previousHash.Concat(Encoding.Latin1.GetBytes(Data)).ToArray());
+            Hash = SHA256.Create().ComputeHash(previousHash.Concat(Encoding.Latin1.GetBytes(Data)).ToArray());
         }
 
         public override string ToString()
