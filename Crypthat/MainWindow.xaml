@@ -5,8 +5,54 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Crypthat"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="450" Width="1000" >
 
+
+    <Grid Background="#FF3D3A4A">
+
+
+        <ComboBox x:Name="BlocksList" Grid.Column="0" Width="390" Height="25" Background="#FF595561"
+          Style="{StaticResource {x:Static ToolBar.ComboBoxStyleKey}}" Foreground="White" SelectionChanged="ComboBox_SelectionChanged">
+            <ComboBox.ItemContainerStyle>
+                <Style TargetType="ComboBoxItem">
+                    <Setter Property="Background" Value="#FF5D5B5F"/>
+                    <Setter Property="BorderBrush" Value="#FF5D5B5F"/>
+                </Style>
+            </ComboBox.ItemContainerStyle>
+
+
+            <!--<TextBlock>LG Nexus 5X</TextBlock>
+            <TextBlock>Huawai Nexus 6P</TextBlock>
+            <TextBlock>iPhone 6S</TextBlock>
+            <TextBlock>iPhone 6S Plus</TextBlock>
+            <TextBlock>Microsoft Lumia 950</TextBlock>-->
+        </ComboBox>
+
+
+        <TextBox x:Name="BlockContent" Grid.Row="1" Grid.Column="0"  BorderBrush="Transparent"  Background="#FF45404E" FontSize="15" Foreground="White" KeyDown="BlockContent_KeyDown"  >
+        </TextBox>
+        <TextBox x:Name="BlocksData" Grid.Row="1" Grid.Column="2" BorderBrush="Transparent" Background="#FF45404E" FontSize="15" Foreground="White"   ></TextBox>
+
+
+        <Label Grid.Row="0" Grid.Column="1" Content="Блоки" FontSize="15" HorizontalAlignment="Center" Foreground="White"></Label>
+        <Button x:Name="ChangeButton" Content="Изменить" FontSize="15" Grid.Row="2" Grid.Column="0" Background="#FF36323E" Foreground="White" Click="ChangeButton_Click"></Button>
+        <Button x:Name="AddButton"  Content="Добавить" FontSize="15" Grid.Row="2" Grid.Column="3" Background="#FF36323E" Foreground="White" Click="AddButton_Click"></Button>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition />
+            <RowDefinition Height="40"/>
+
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+
+            <ColumnDefinition />
+            <ColumnDefinition />
+
+
+        </Grid.ColumnDefinitions>
     </Grid>
+
+
 </Window>
